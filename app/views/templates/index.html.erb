@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DOM PDF</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <%= stylesheet_link_tag 'index' %>
+</head>
+
+<body>
+  <div class="cover-page">
+    <div class="title-wrapper">
+      <div class="title">
+        <p class="light">Ihr persönliches</p>
+        <p class="bold">Ergebnis von BetterDoc</p>
+      </div>
+    </div>
+    <%= image_tag "logo.png", alt: "logo", class: "logo" %>
+  </div>
+  
+  <div class="page">
+    <table class="header">
+      <tr>
+        <td class="left">
+          <%= Time.now.strftime('%d.%m.%Y.') %>
+        </td>
+        <td class="right">
+          Fallnummer: APGW-P3W7-4N0X
+        </td>
+      </tr>
+    </table>
+    <h2>Ihr persönliches Ergebnis</h2>
+    <p>
+      <b>Im Folgenden stellen wir Ihnen zwei/drei/vier Ärzte/Spezialisten vor, die ihren Schwerpunkt im Bereich XYZ</b> <i>(z.B. konservative Orthopädie und Schmerzmedizin, Erkrankungen der Speiseröhre, etc.)</i> <b>haben und für die Beratung und Behandlung in Ihrer Situation qualifiziert sind.</b>
+    </p>
+    <p>
+      Die Auswahl basiert auf Ihren Angaben und wurde für Ihre Situation <b>individuell</b> recherchiert. Dabei agiert BetterDoc <b>unabhängig</b> und verzichtet bewusst auf vertragliche Bindungen zu Ärzten.
+    </p>
+    <p>
+      Einige medizinische Begriffe sind mit einer Zahl gekennzeichnet. Diese werden auf der letzten Seite im Glossar erläutert.
+    </p>
+    <table class="section-1">
+      <tr>
+        <td>
+          <%= image_tag "headshot.png", alt: "headshot", class: "headshot" %>
+        </td>
+        <td>
+          <h3>Ihre Mithilfe ist gefragt!</h3>
+          <p>Helfen Sie anderen Menschen mit ähnlichen Gesundheitsanliegen dabei, die beste medizinische Versorgung zu erhalten. Teilen Sie uns einfach Ihre Erfahrungen beim Spezialisten mit. Nur so können wir uns stetig verbessern und den Qualitätsstandard hoch halten. Wir übermitteln Ihnen dazu einen Fragebogen. Wir bedanken uns schon jetzt für Ihr wertvolles Feedback.</p>
+          <p><b>Dr. med. Donata von Dellingshausen</b></p>
+          <p>Gründerin und medizinische Leiterin von BetterDoc</p>
+        </td>
+      </tr>
+    </table>
+    <table class="section-2">
+      <tr>
+        <td colspan="2">
+          <span class="table-title">Haben Sie noch Fragen?</span>
+          <span>Zögern Sie nicht, uns zu kontaktieren!</span>
+        </td>
+      </tr>
+      <tr>
+        <td>0800 444 6 999 (gebührenfrei)</td>
+        <td>
+          <a href="https://betterdoc.org">www.betterdoc.de</a>
+        </td>
+      </tr>
+      <tr>
+        <td>aerzte-team@betterdoc.de</td>
+        <td>Häufige Fragen: <a href="https://betterdoc.org/faq">www.betterdoc.de/faq</a></td>
+      </tr>
+    </table>
+    <h3>Abrechnungskosten</h3>
+    <p>
+      Die Kostenübernahme der Behandlung bei einem der genannten Spezialisten erfolgt - wie bei jedem anderen Arztbesuch auch - im Rahmen des Leistungsumfangs Ihrer gesetzlichen Krankenkasse (Abrechnung über Ihre Gesundheitskarte) oder Ihrer privaten Krankenversicherung (Erstattung der eingereichten Rechnung). Sollten Sie Fragen oder Unsicherheiten bezüglich der Kostenübernahme haben, klären Sie diese bitte direkt mit Ihrer Krankenkasse/-versicherung.
+    </p>
+    <div class="footer">
+      <span class="right">1</span>
+    </div>
+  </div>
+
+  <div class="page">
+    <table class="header">
+      <tr>
+        <td class="left">
+          Ihre Ergebnisse im Überblick
+        </td>
+        <td class="right">
+          Fallnummer: APGW-P3W7-4N0X
+        </td>
+      </tr>
+    </table>
+    <h2>Ihre Ergebnisse im Überblick</h2>
+    <% @medics.each_with_index do |medic, index| %>
+      <div>
+        <h3><%= index + 1 %>. Für eine Behandlung</h3>
+        <h3><%= medic[:title] %></h3>
+        <table class="medic-wrapper">
+          <tr>
+            <td rowspan="3">
+              <%= image_tag "headshot.png", alt: "headshot", class: "headshot" %>
+            </td>
+            <td>
+              <p>Adresse</p>
+              <p><b><%= medic[:adresse] %></b></p>
+            </td>
+            <td>
+              <p>Fachgebiet</p>
+              <p><b><%= medic[:fachgebiet] %></b></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Entfernung</p>
+              <p><b><%= medic[:entfernung] %></b></p>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <% if medic[:patientenfeedback].present? %>
+                <p>Patientenfeedback</p>
+                <p><b><%= medic[:patientenfeedback] %></b></p>
+              <% end %>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+    <div class="footer">
+      <span class="right">2</span>
+    </div>
+  </div>
+</body>
+
+</html>
