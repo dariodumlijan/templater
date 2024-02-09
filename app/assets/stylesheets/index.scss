@@ -5,6 +5,7 @@
 $primary: #0b7d51;
 $white: #ffffff;
 $black: #000000;
+$light: #fbfbfb;
 
 html,
 body {
@@ -26,21 +27,58 @@ a {
   color: $primary;
 }
 
-.cover-page,
-.page {
-  height: 1122.5px;
-  max-height: 1122.5px;
-  min-height: 1122.5px;
-  min-width: auto;
-  position: relative;
-  width: auto;
+div.page-break {
+  page-break-after: always;
+
+  &:last-of-type {
+    page-break-after: avoid;
+  }
 }
 
-.cover-page {
-  background-size: cover;
-  background-image: image_url("cover.png");
-  height: 100%;
+.page {
+  min-height: 1000px;
   position: relative;
+}
+
+.header,
+footer {
+  height: 20px;
+  width: 100%;
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+}
+
+.header {
+  border-bottom: 1px solid $black;
+  font-size: 12px;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+
+  .page-number:after {
+    content: counter(page);
+  }
+
+  .right {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.cover-wrapper {
+  background-image: image_url("cover.png");
+  background-size: cover;
+  height: 100%;
+  max-height: 1122.5px;
   width: 100%;
 
   p {
@@ -81,39 +119,11 @@ a {
   }
 }
 
-.page {
-  height: 100% !important;
+.page-wrapper {
   padding: 20px 40px;
-  position: relative;
 
-  .header,
-  .footer {
-    height: 20px;
-    width: 100%;
-
-    .left {
-      text-align: left;
-    }
-
-    .right {
-      text-align: right;
-    }
-  }
-
-  .header {
-    border-bottom: 1px solid $black;
-    font-size: 12px;
-  }
-
-  .footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-
-    .right {
-      position: absolute;
-      right: 0;
-    }
+  .highlight {
+    color: $primary;
   }
 
   .section-1 {
@@ -151,22 +161,91 @@ a {
   .medic-wrapper {
     background-color: rgba($primary, 0.2);
     border-radius: 0 999px 999px 0;
-    max-height: 180px;
+    border-spacing: 0;
     height: 180px;
+    max-height: 180px;
     padding-left: 40px;
     padding-right: 30%;
     transform: translateX(-40px);
     width: 100%;
 
-    .headshot {
-      object-fit: cover;
-      width: 100px;
-      max-height: 180px;
-      height: 180px;
+    tr,
+    td {
+      padding: 0;
     }
 
     p {
       margin: 0;
     }
+
+    .medic-icon {
+      height: 180px;
+      margin-bottom: -4px;
+    }
+  }
+
+  .medic-page-wrapper {
+    background-color: rgba($primary, 0.2);
+    border-radius: 0 999px 999px 0;
+    border-spacing: 0;
+    height: 180px;
+    max-height: 180px;
+    padding-left: 40px;
+    padding-right: 20px;
+    transform: translateX(-40px);
+    width: 100%;
+    overflow: hidden;
+
+    tr,
+    td {
+      padding: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .medic-icon {
+      border-radius: 100%;
+      height: 100px;
+      width: 100px;
+      margin-top: 20px;
+    }
+
+    .medic-footer {
+      background-color: $light;
+      margin-top: 10px;
+      padding: 10px 20px 10px 40px;
+      transform: translateX(-40px);
+      width: 100%;
+
+      .gap-left {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .my-spacer {
+    margin: 40px 0;
+  }
+
+  .highlighted-section {
+    background-color: rgba($primary, 0.1);
+    padding: 20px 40px;
+    transform: translateX(-40px);
+    width: 100%;
+  }
+
+  .pill {
+    border-radius: 999px;
+    padding: 10px;
+    width: max-content;
+    background-color: $black;
+    color: $white;
+    font-size: 12px;
+  }
+
+  .table-gap-2 {
+    border-spacing: 10px 40px;
   }
 }

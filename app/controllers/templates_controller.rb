@@ -1,34 +1,17 @@
 class TemplatesController < ApplicationController
   def index
+    if request.get?
+      @medics = mocks[:medics]
+
+      return
+    end
     start = Time.now
-    @medics = [
-      {
-        title: "Dr. med. Mohamed Hashemian",
-        adresse: "53113 Bonn",
-        fachgebiet: "Anästhesiologie",
-        entfernung: "32 km",
-      },
-      {
-        title: "Andreas Gebauer",
-        adresse: "45699 Herten, Westf",
-        fachgebiet: "Anästhesiologie",
-        entfernung: "101 km",
-      },
-      {
-        title: "Volker Hambloch",
-        adresse: "50679 Köln",
-        fachgebiet: "Orthopädie",
-        entfernung: "5 km",
-        patientenfeedback: "7,6/10",
-      },
-    ]
 
-    return if request.format.html?
-
-    filename = request.query_parameters[:filename] + ".pdf"
+    @medics = template_params[:medics]
+    filename = template_params[:filename] + ".pdf"
     filepath = "./tmp/#{filename}"
-    html = render_to_string('templates/index', :formats => [:html], layout: false)
 
+    html = render_to_string('templates/index', :formats => [:html], layout: false)
     system("php ./lib/php/main.php '#{filename}' '#{html}'".strip)
 
     if File.exists?(filepath)
@@ -42,5 +25,40 @@ class TemplatesController < ApplicationController
     puts ""
     puts "Completed in: #{Time.now - start}s"
     puts ""
+  end
+
+  private
+
+  def template_params
+    params.require(:template).permit(
+      :filename,
+      medics: [:title, :address, :specialty, :distance, :patient_feedback]
+    )
+  end
+
+  def mocks
+    return {
+      medics: [
+        {
+          title: "Dr. med. Mohamed Hashemian",
+          address: "53113 Bonn",
+          specialty: "Anästhesiologie",
+          distance: "32 km",
+        },
+        {
+          title: "Andreas Gebauer",
+          address: "45699 Herten, Westf",
+          specialty: "Anästhesiologie",
+          distance: "101 km",
+        },
+        {
+          title: "Volker Hambloch",
+          address: "50679 Köln",
+          specialty: "Orthopädie",
+          distance: "5 km",
+          patient_feedback: "7,6/10",
+        },
+      ]
+    }
   end
 end

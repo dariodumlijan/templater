@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "templates#index"
-  get "generate", to: "templates#index"
+  post "/", to: "templates#index"
 end

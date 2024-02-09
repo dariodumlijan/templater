@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="cover-page">
+  <div class="page cover-wrapper page-break">
     <div class="title-wrapper">
       <div class="title">
         <p class="light">Ihr persönliches</p>
@@ -21,8 +21,8 @@
     </div>
     <%= image_tag "logo.png", alt: "logo", class: "logo" %>
   </div>
-  
-  <div class="page">
+
+  <div class="page page-wrapper page-break">
     <table class="header">
       <tr>
         <td class="left">
@@ -78,12 +78,9 @@
     <p>
       Die Kostenübernahme der Behandlung bei einem der genannten Spezialisten erfolgt - wie bei jedem anderen Arztbesuch auch - im Rahmen des Leistungsumfangs Ihrer gesetzlichen Krankenkasse (Abrechnung über Ihre Gesundheitskarte) oder Ihrer privaten Krankenversicherung (Erstattung der eingereichten Rechnung). Sollten Sie Fragen oder Unsicherheiten bezüglich der Kostenübernahme haben, klären Sie diese bitte direkt mit Ihrer Krankenkasse/-versicherung.
     </p>
-    <div class="footer">
-      <span class="right">1</span>
-    </div>
   </div>
 
-  <div class="page">
+  <div class="page page-wrapper page-break">
     <table class="header">
       <tr>
         <td class="left">
@@ -102,29 +99,29 @@
         <table class="medic-wrapper">
           <tr>
             <td rowspan="3">
-              <%= image_tag "headshot.png", alt: "headshot", class: "headshot" %>
+              <img class="medic-icon" src="data:image/svg+xml;base64,<%= Base64.encode64(render partial: "svgs/medic") %>">
             </td>
             <td>
               <p>Adresse</p>
-              <p><b><%= medic[:adresse] %></b></p>
+              <p><b><%= medic[:address] %></b></p>
             </td>
             <td>
               <p>Fachgebiet</p>
-              <p><b><%= medic[:fachgebiet] %></b></p>
+              <p><b><%= medic[:specialty] %></b></p>
             </td>
           </tr>
           <tr>
             <td>
               <p>Entfernung</p>
-              <p><b><%= medic[:entfernung] %></b></p>
+              <p><b><%= medic[:distance] %></b></p>
             </td>
             <td></td>
           </tr>
           <tr>
             <td>
-              <% if medic[:patientenfeedback].present? %>
+              <% if medic[:patient_feedback].present? %>
                 <p>Patientenfeedback</p>
-                <p><b><%= medic[:patientenfeedback] %></b></p>
+                <p><b><%= medic[:patient_feedback] %></b></p>
               <% end %>
             </td>
             <td></td>
@@ -132,10 +129,146 @@
         </table>
       </div>
     <% end %>
-    <div class="footer">
-      <span class="right">2</span>
-    </div>
   </div>
+
+  <% @medics.each_with_index do |medic, index| %>
+    <div class="page page-wrapper page-break">
+      <table class="header">
+        <tr>
+          <td class="left">
+            Ergebnis <%= index + 1 %> von 3
+          </td>
+          <td class="right">
+            Fallnummer: APGW-P3W7-4N0X
+          </td>
+        </tr>
+      </table>
+      <h2>Für eine Behandlung</h2>
+      <table class="medic-page-wrapper">
+        <tr>
+          <td>
+            <img class="medic-icon" src="data:image/svg+xml;base64,<%= Base64.encode64(render partial: "svgs/medic") %>">
+          </td>
+          <td>
+            <h3><%= medic[:title] %></h3>
+            <p>
+              Gemeinschaskrankenhaus St. Elisabeth/St. Petrus./St. Johannes
+              GmbH Haus St. Petrus -<br />
+              Anästhesie, Intensivmedizin und Schmerztherapie<br />
+              Bonner Talweg 4-6<br />
+              DE 53113 Bonn
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="medic-footer">Tel: <b>+49 228 5062265</b> <span class="gap-left">Allgemeinsprechstunde</span></div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="my-spacer">
+        <h3 class="highlight">Informaonen zum Arzt</h3>
+        <table>
+          <tr>
+            <td>Dr. med. Mohamed Hashemian ist Facharzt für <span class="highlight">Anästhesiologie</span></td>
+            <td>Er ist täg als <span class="highlight">Assistenzarzt / Assistenzärzn</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <% if index == 2 %>
+        <div class="my-spacer">
+          <h3 class="highlight">Persönliche Zerfikate</h3>
+          <ul>
+            <li>
+              <div>
+                <h4>Hauptoperateur oder Hauptoperateurin (endoCert)</h4>
+                <p>Sie können sich nach vorheriger telefonischer Terminvereinbarung in der Sprechstunde
+von Dr. med. Mohamed Hashemian vorstellen.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="my-spacer">
+          <h3 class="highlight">Das sagen unsere Paenten und Paennnen über Volker Hambloch</h3>
+          <table class="table-gap-2">
+            <tr>
+              <td>
+                <span class="pill">10/10 Punkte</span>
+              </td>
+              <td>
+                <span>„Sehr professionelle Durchführung und Nachbetreuung in der Klinik.“</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pill">10/10 Punkte</span>
+              </td>
+              <td>
+                <span>„Bisher nur posive Erfahrungen.“</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pill">0/10 Punkte</span>
+              </td>
+              <td>
+                <span>„Der Ablauf war unprofessionell.“</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pill">9/10 Punkte</span>
+              </td>
+              <td>
+                <span>„Keine Angaben.“</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pill">9/10 Punkte</span>
+              </td>
+              <td>
+                <span>„Sachliche Beratung und Vorschlag zur Lösung des Problems.“</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+
+      <div class="highlighted-section">
+        <h3>Informaonen zur Klinik / Abteilung / Praxis</h3>
+        <p><b>Weiterführende Informaonen</b></p>
+        <ul>
+          <li>Sie können sich nach vorheriger telefonischer Terminvereinbarung in der Sprechstunde
+von Dr. med. Mohamed Hashemian vorstellen.</li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="page page-wrapper page-break">
+    <table class="header">
+      <tr>
+        <td class="left">
+          Glossar
+        </td>
+        <td class="right">
+          Fallnummer: APGW-P3W7-4N0X
+        </td>
+      </tr>
+    </table>
+
+    <h2>Glossar</h2>
+    <h3>1. endoCert</h3>
+    <p>Die endoCert-lniave soll eine qualitav hochwerge Durchführung endoprothescher Eingriffe sicherstellen. Auf der Seite der Iniave (hps://www.endomap.de/) können Sie über die Suchfunkon außerdem weitere für die jeweilige Klinik zerfizierte Ärznnen und Ärzte einsehen.</p>
+  </div>
+
+
+  <footer>
+    <span class="right page-number"></span>
+  </footer>
 </body>
 
 </html>
