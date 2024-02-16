@@ -27,6 +27,30 @@ class TemplatesController < ApplicationController
     puts ""
   end
 
+  def betterdoc
+    return if request.get?
+    start = Time.now
+
+    filename = template_params[:filename] + ".pdf"
+    filepath = "./tmp/#{filename}"
+
+    html = render_to_string('templates/betterdoc', :formats => [:html], layout: false)
+    # exec("php ./lib/php/main.php '#{filename}' '#{html}'".strip)
+    system("php ./lib/php/main.php '#{filename}' '#{html}'".strip)
+
+    if File.exists?(filepath)
+      data = File.read(filepath)
+      send_data data, type: 'application/pdf', filename: filename
+      File.delete(filepath)
+    else
+      render plain: "There was an error", status: :bad_request
+    end
+
+    puts ""
+    puts "Completed in: #{Time.now - start}s"
+    puts ""
+  end
+
   private
 
   def template_params

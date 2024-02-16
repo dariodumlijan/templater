@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "templates#index"
   post "/", to: "templates#index"
+
+  get "/betterdoc", to: "templates#betterdoc"
+  post "/betterdoc", to: "templates#betterdoc"
 end

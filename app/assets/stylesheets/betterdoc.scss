@@ -1,0 +1,376 @@
+/* General Styles */
+
+html,
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  max-width: 805px;
+}
+
+.text-bolder b {
+  font-weight: bolder;
+}
+
+.text-bolder strong {
+  font-weight: bolder;
+}
+
+.frontpage-title {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 29px;
+  color: #ffffff;
+}
+
+.frontpage-subtitle {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-size: 33px;
+  color: #ffffff;
+}
+
+.header-1 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.header-2 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.header-3 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.header-4 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  color: #282f35;
+}
+
+.header-5 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 18px;
+  color: #282f35;
+}
+
+.body {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #282f35;
+}
+
+.body-2 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 17px;
+  color: #282f35;
+}
+
+.topline-3 {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #282f35;
+}
+
+.cite {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 14px;
+  color: #282f35;
+}
+
+.score {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: #282f35;
+}
+
+.prefered-disclaimer {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 22px;
+  color: #282f35;
+}
+
+.section-title-icon {
+  height: 35px;
+  width: 35px;
+}
+
+.dark-green {
+  color: #0b7d51;
+}
+
+.dark-gray {
+  color: #282f35;
+}
+
+.glossary_circle {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background-color: #282f35;
+  color: white;
+  text-align: center;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* Front page */
+
+.bg-image {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bottom-logo {
+  position: absolute;
+  width: 180px;
+  height: 50px;
+  margin-top: 1040px;
+  margin-left: 325px;
+}
+
+.bottom-logo-ch {
+  position: absolute;
+  width: 180px;
+  height: 50px;
+  margin-top: 1040px;
+  margin-left: 325px;
+  height: 32px;
+  width: 170px;
+}
+
+.title-container {
+  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
+  width: 75%;
+  background-color: #0b7d51;
+  opacity: 0.85;
+  position: absolute;
+  margin-top: 70%;
+  padding-left: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* Intro */
+
+.white {
+  color: #eaeeef;
+}
+
+.body a {
+  color: #eaeeef;
+}
+
+.intro-text-container {
+  background: #0b7d51;
+}
+
+.questions-container {
+  background: rgba(11, 125, 81, 0.1);
+}
+
+.intro-profile-pic {
+  height: 105px;
+  width: 105px;
+  border-radius: 50%;
+}
+
+.intro-bulb-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.questions-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.disclaimer-icon {
+  height: 25px;
+  width: 25px;
+}
+/* Summary */
+
+.medic-summary-container {
+  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
+  width: 96%;
+}
+
+.medic-image {
+  height: 210px;
+  width: 190px;
+  border-radius: 0px;
+}
+
+.recommended-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding-right: 8px;
+  padding-left: 10px;
+}
+
+.summary-section-icon {
+  height: 44px;
+  width: 44px;
+}
+/* Medic details component */
+
+.medic-details-container {
+  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
+  width: 90%;
+}
+
+.medic-details-recommended-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding-left: 7px;
+  padding-right: 4px;
+}
+
+.medic-avatar-image {
+  min-height: 100px;
+  min-width: 100px;
+  max-height: 100px;
+  max-width: 100px;
+  border-radius: 0px;
+}
+
+.container-small-icon {
+  min-height: 27px;
+  min-width: 27px;
+  max-height: 27px;
+  max-width: 27px;
+}
+
+.web-url {
+  max-width: 400px;
+  color: #0b7d51;
+}
+
+.prefered-provider-square {
+  width: 15px;
+  height: 15px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+/* Medic details */
+
+.green-span span {
+  color: #0b7d51;
+}
+
+.feedback-points {
+  background: #282f35;
+  border-radius: 90px;
+  width: 100px;
+}
+
+.information-section-icon {
+  max-height: 50px;
+  max-width: 50px;
+  min-height: 50px;
+  min-width: 50px;
+}
+
+.expert-recommendation-container {
+  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
+  border-style: solid;
+  border-width: 1px;
+  border-left-style: none;
+  border-color: #0b7d51;
+  width: 85%;
+  padding-right: 10px;
+}
+/* Workplace details */
+
+.badge-circle {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #ffbf00;
+  margin-right: -20px;
+  z-index: 2;
+}
+
+.badge-icon {
+  height: 35px;
+  width: 35px;
+}
+
+.badage-section {
+  background: #282f35;
+  border-radius: 90px;
+  padding: 3px 10px 0px 20px;
+  margin: 5px 0px 5px 5px;
+  height: 25px;
+}
+
+.scale-icon {
+  height: 35px;
+  width: 35px;
+}
+
+.infrastructure-circle {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  background-color: #282f35;
+}
+
+.infrastructure-icon {
+  padding-top: 5px;
+  padding-left: 5px;
+  height: 33px;
+  width: 33px;
+}
+
+.linked_divider {
+  margin-left: 17px;
+  padding-left: 10px;
+  margin-top: -10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: solid 2px;
+}
+
+.intro-link-color a {
+  color: #0b7d51;
+}
